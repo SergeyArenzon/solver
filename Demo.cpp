@@ -16,7 +16,7 @@ using solver::solve, solver::RealVariable, solver::ComplexVariable;
 int main() {
     RealVariable x;
 
-     cout << solve(2*x-4 == 10) << endl;  // 7
+    cout << solve(2*x-4 == 10) << endl;  // 7
     cout << solve((x^2) == 16) << endl;   // 4 or -4
     cout << solve((x^2) == -16) << endl;  // exception: no real solution
     cout << solve((x^2) + 2*x + 4.0 == 20 + 6.0*x/2 - x) << endl;   // 4 or -4

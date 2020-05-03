@@ -1,43 +1,39 @@
+//
+// Created by shaharnik on 24/04/2020.
+//
+
+#pragma once
 #include <complex>
-
-namespace solver{
-    class RealVariable{
+namespace solver
+{
+    class RealVariable
+    {
         public:
-        
-        
-        friend RealVariable& operator*(int x ,RealVariable&){RealVariable y; return y;};
-        friend RealVariable& operator-(RealVariable&, int x){RealVariable y; return y;};
-        friend RealVariable& operator-(RealVariable&, RealVariable&){RealVariable y; return y;};
-        friend RealVariable& operator+(int x, RealVariable&){RealVariable y; return y;};
-        friend RealVariable& operator+(RealVariable&, RealVariable&){RealVariable y; return y;};
-        friend RealVariable& operator+(RealVariable&, double x){RealVariable y; return y;};
-        friend RealVariable& operator/(RealVariable&, double x){RealVariable y; return y;};
-        friend RealVariable& operator^(RealVariable&, int x){RealVariable y; return y;};
-        friend RealVariable& operator-(RealVariable&){};
-        friend RealVariable& operator==(RealVariable&, int x){RealVariable y; return y;};
-        friend RealVariable& operator==(RealVariable&, RealVariable&){RealVariable y; return y;};
+        double a,b,c;
+
+        //Constructor
+    
+        RealVariable(double a ,double b, double c);
+        RealVariable(): a(0), b(1), c(0){}
+
+        friend RealVariable operator +(const RealVariable &, const RealVariable &);
+        friend RealVariable operator +(const RealVariable &, const double &);
+        friend RealVariable operator +(const double &, const RealVariable &);
+
+        friend RealVariable operator -(const RealVariable &, const RealVariable &);
+        friend RealVariable operator -(const RealVariable &, const double);
+        friend RealVariable operator-(const double y, const RealVariable& x);
+
+        friend RealVariable operator *(const double, const RealVariable &);
+
+        friend RealVariable operator ==(const RealVariable &, const RealVariable &);
+        friend RealVariable operator ==(const RealVariable &, const double);
+        friend RealVariable operator ==(const double y, const RealVariable& x);
+
+        friend RealVariable operator ^(const RealVariable& x, const double y);
+
+        friend RealVariable operator /(const RealVariable& x, const double y);
     };
+    double solve(RealVariable );
 
-    double solve(RealVariable x);
-
-
-    class ComplexVariable{
-        public:
-
-        friend ComplexVariable& operator*(int x ,ComplexVariable&){ComplexVariable y; return y;};
-        friend ComplexVariable& operator-(ComplexVariable&, int x){ComplexVariable y; return y;};
-        friend ComplexVariable& operator-(ComplexVariable&, ComplexVariable&){ComplexVariable y; return y;};
-        friend ComplexVariable& operator+(int x, ComplexVariable&){ComplexVariable y; return y;};
-        friend ComplexVariable& operator+(ComplexVariable&, ComplexVariable&){ComplexVariable y; return y;};
-        friend ComplexVariable& operator+(ComplexVariable&, double x){ComplexVariable y; return y;};
-        friend ComplexVariable& operator+(ComplexVariable&, std::complex<double> ){ComplexVariable y; return y;};
-        friend ComplexVariable& operator/(ComplexVariable&, double x){ComplexVariable y; return y;};
-        friend ComplexVariable& operator^(ComplexVariable&, int x){ComplexVariable y; return y;};
-        friend ComplexVariable& operator-(ComplexVariable&){ComplexVariable y; return y;};
-        friend ComplexVariable& operator==(ComplexVariable&, int x){ComplexVariable y; return y;};
-        friend ComplexVariable& operator==(ComplexVariable&, ComplexVariable&){ComplexVariable y; return y;};
-
-
-    };
-    double solve(ComplexVariable x);
 }

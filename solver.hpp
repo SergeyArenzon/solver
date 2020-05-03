@@ -36,4 +36,13 @@ namespace solver
     };
     double solve(RealVariable );
 
+
+class ComplexVariable{
+    public:
+    ComplexVariable();
+
+
+
+}
+
 }

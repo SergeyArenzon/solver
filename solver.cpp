@@ -75,7 +75,7 @@ double solver::solve(const RealVariable x) {
     //cout<<"a.x:"<<x.a<<" x.b:"<<x.b<<" x.c: "<<x.c<<endl;
     if(x.a==0) {
         if(x.b==0 && x.c!=0)
-            throw std::out_of_range {" there is no result "};
+            throw std::out_of_range {"There is no Real solution! "};
         else return x.c/-x.b;
     }
     else if(x.a == 0){
